@@ -31,6 +31,7 @@ class ViewController: UIViewController {
             print("Total: \(total)")
             
             //TODO: Adding operations to the main queue
+            ///main: referencing to the iOS main thread
             let main = OperationQueue.main
             main.addOperation {
                 self.totalLbl.text = "Total: \(total)"

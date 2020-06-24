@@ -16,11 +16,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calculation()
+        
+        addingDependency()
+        
         ///Time consuming operation:
         ///A loop to calculate the logarithm of a sequence of values
         let operation = BlockOperation {
             var total: Double = 1
-            for f in 1..<100 {
+            for f in 1..<10000 {
                 total = log(total+Double(f))
             }
             print("Total: \(total)")
@@ -38,8 +42,32 @@ class ViewController: UIViewController {
         
         ///iOS Main Queue
         print("Printed in the Main Queue.")
+        
+//        addingDependency()
     }
 
-
+    //TODO: Adding a dependency
+    func addingDependency() {
+        let firstOperation = BlockOperation {
+            print("First Operation Executed")
+        }
+        
+        let secondOperation = BlockOperation {
+            print("Second Operation Executed")
+        }
+        
+        firstOperation.addDependency(secondOperation)
+        
+        let queue = OperationQueue()
+        queue.addOperations([firstOperation, secondOperation], waitUntilFinished: false)
+    }
+    
+    func calculation() {
+        var total: Double = 1
+        for f in 1..<100 {
+            total = log(total+Double(f))
+        }
+        print("Total: \(total)")
+    }
 }
 

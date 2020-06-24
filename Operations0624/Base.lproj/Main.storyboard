@@ -21,14 +21,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adding operations to the main queue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9e-n6-BkT">
+                                <rect key="frame" x="66" y="518.5" width="282" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVB-v4-bbz">
+                                <rect key="frame" x="66" y="549.5" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="0Dy-50-W7q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6ES-cv-KH5"/>
+                            <constraint firstItem="IVB-v4-bbz" firstAttribute="leading" secondItem="M9e-n6-BkT" secondAttribute="leading" id="AkU-oL-Zdm"/>
+                            <constraint firstItem="M9e-n6-BkT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bHs-6y-m6R"/>
+                            <constraint firstItem="IVB-v4-bbz" firstAttribute="top" secondItem="M9e-n6-BkT" secondAttribute="bottom" constant="10" id="eQz-QS-oFR"/>
                             <constraint firstItem="0Dy-50-W7q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jhm-g7-iAX"/>
+                            <constraint firstItem="M9e-n6-BkT" firstAttribute="top" secondItem="0Dy-50-W7q" secondAttribute="bottom" constant="60" id="y29-Qz-x8t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="totalLbl" destination="IVB-v4-bbz" id="af0-va-3oU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

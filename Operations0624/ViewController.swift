@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var totalLbl: UILabel!
+    
+    //TODO: Adding operations to a queue
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +24,12 @@ class ViewController: UIViewController {
                 total = log(total+Double(f))
             }
             print("Total: \(total)")
+            
+            //TODO: Adding operations to the main queue
+            let main = OperationQueue.main
+            main.addOperation {
+                self.totalLbl.text = "Total: \(total)"
+            }
         }
         
         ///Adding new queue

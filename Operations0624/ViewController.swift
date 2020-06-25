@@ -49,6 +49,7 @@ class ViewController: UIViewController {
         
         dispatchingTasksWithGCD()
 
+        addingTasksToDispatchGroup()
     }
 
     //TODO: Adding a dependency
@@ -118,5 +119,29 @@ extension ViewController {
         
         print("__Printed in the Main Queue")
 
+    }
+}
+
+extension ViewController {
+    //TODO: Adding tasks to a Dispatch Group
+    func addingTasksToDispatchGroup() {
+        let group = DispatchGroup()
+        let queue = DispatchQueue(label: "myqueue")
+        
+        group.enter()
+        queue.async(execute: {
+            print("__First Task Executed")
+            group.leave()
+        })
+        
+        group.enter()
+        queue.async(execute: {
+            print("__Second Task Executed")
+            group.leave()
+        })
+        
+        group.notify(queue: .main, execute: {
+            print("__The tasks are over")
+        })
     }
 }

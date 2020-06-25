@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     //TODO: Adding operations to a queue
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         ///First execution in order
         calculation()
         
@@ -46,6 +46,9 @@ class ViewController: UIViewController {
         print("Printed in the Main Queue.")
         
 //        addingDependency()
+        
+        dispatchingTasksWithGCD()
+
     }
 
     //TODO: Adding a dependency
@@ -73,3 +76,22 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController {
+    //TODO: Dispatching tasks with GCD
+    func dispatchingTasksWithGCD() {
+        let queue = DispatchQueue(label: "myqueue")
+        
+        ///this new queue executes with the iOS main queue simultaneously
+        queue.async(execute: {
+            var total: Double = 1
+            for f in 1..<100 {
+                total = log(total + Double(f))
+            }
+            print("_Total: \(total)")
+        })
+        
+        ///iOS main queue
+        print("_Printed in the Main Queue")
+
+    }
+}

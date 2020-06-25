@@ -95,3 +95,28 @@ extension ViewController {
 
     }
 }
+
+extension ViewController {
+    
+    //TODO: Working on the main queue with GCD
+    func workingOnTheMainQueueWithGCD() {
+        let queue = DispatchQueue(label: "myqueue")
+        queue.async(execute: {
+            
+            var total: Double = 1
+            for f in 1..<100 {
+                total = log(total + Double(f))
+            }
+            
+            let main = DispatchQueue.main
+            
+            ///This last operation is performed synchronously since we are already inside an asynchronous operation.
+            main.sync(execute: {
+                self.totalLbl.text = "__Total: \(total)"
+            })
+        })
+        
+        print("__Printed in the Main Queue")
+
+    }
+}

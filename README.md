@@ -7,3 +7,5 @@
 ## Adding a dependency
 
 ## Dispatching tasks with GCD
+
+## Working on the main queue with GCD
